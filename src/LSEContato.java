@@ -73,8 +73,28 @@ public class LSEContato {
     }
 
     public Contato removerFinal() {
-        //tarefinha de casa.
-        return null;
+        if (tamanhoO1()==0){
+            System.out.println("Lista Vazia");
+            return null;
+        }
+        else if (tamanhoO1()==1){
+            Contato aux = this.cabeca;
+            this.cabeca=null;
+            this.cauda=null;
+            tamanhoDaLista--;
+            return aux;
+        }
+        else {
+            Contato aux = this.cabeca;
+            while (aux.proximo != this.cauda){
+                aux=aux.proximo;
+            }
+            Contato r = aux.proximo;
+            aux.proximo=null;
+            this.cauda=aux;
+            tamanhoDaLista--;
+            return r;
+        }
     }
 
     public Contato remover(int i) {// remover de um indice específico
